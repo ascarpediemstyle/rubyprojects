@@ -11,27 +11,21 @@
 </p>
 
 <p>
+
+  <div id="star"><strong>Rnak:</strong></div>
+</p>
+
+<script>doRaty("star",<%= @book.rank %>)</script>
+
+<p>
+  <%= @book.amazon_url.html_safe %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @book.description %>
 </p>
 
-<p>
-  <strong>Rnak:</strong>
-  <div id="star"></div>
-</p>
-<script>doRaty("star",<%= @book.rank %>)</script>
-
-
-<!-- <script>
-$('#star').raty({
-  size     : 36,
-  starOff: '/assets/star-off.png',
-  starOn : '/assets/star-on.png',
-  scoreName: 'review[point]' ,
-  readOnly: true,
-  score : <%= @book.rank %>
-});
-</script> -->
 
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
