@@ -43,3 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
+#for masonry
+gem 'masonry-rails' 
+gem 'google-webfonts-rails'

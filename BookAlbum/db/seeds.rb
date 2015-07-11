@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+publishers = Publisher.create(:name => 'ダイヤモンド社', :order_by => 1)
+publishers = Publisher.create(:name => '英治出版', :order_by => 2)

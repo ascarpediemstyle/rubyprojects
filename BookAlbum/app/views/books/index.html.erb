@@ -1,4 +1,6 @@
 
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Books</h1>
@@ -7,25 +9,31 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Rank</th>
       <th>Price</th>
       <th>Description</th>
+      <th>出版社</th>
       <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
   	
-    <% @books.each do |book| %>
+    <% @books.each_with_index do |book,index| %>
+    <% rank_id = "star"+index.to_s %>
       <tr>
         <td><%= book.name %></td>
+        <td><div id="<%=rank_id %>"></div></td>
         <td><%= book.price %></td>
         <td><%= book.description %></td>
+        <td><%= (book.publisher ?  book.publisher.name : "" )%></td>
         <td>
         	<%= link_to 'Show', book %>
         	<%= link_to 'Edit', edit_book_path(book) %>
         	<%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
+      <script>doRaty("<%=rank_id %>",<%= book.rank %>)</script>
     <% end %>    
   </tbody>
 </table>

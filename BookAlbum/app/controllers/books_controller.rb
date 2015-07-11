@@ -6,6 +6,18 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
   end
+  
+  # GET /books/stat
+  # GET /books.json
+  def stat
+    @books = Book.select('publisher_id','count(*) AS cnt').group('publisher_id')
+    @datas = []
+    @books.each do |book|      
+      d = "[\"#{book.publisher.name}\",#{book.cnt}]"      
+      @datas.push(d)
+    end   
+  end
+  
 
   # GET /books/1
   # GET /books/1.json
@@ -69,6 +81,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :price, :description)
+      params.require(:book).permit(:name, :price, :description,:publisher_id,:rank)
     end
 end
