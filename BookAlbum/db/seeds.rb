@@ -8,3 +8,6 @@
 
 publishers = Publisher.create(:name => 'ダイヤモンド社', :order_by => 1)
 publishers = Publisher.create(:name => '英治出版', :order_by => 2)
+
+categories = Category.create(:name => 'ビジネス',:order_by=>1)
+categories = Category.create(:name => '資格',:order_by=>1)
