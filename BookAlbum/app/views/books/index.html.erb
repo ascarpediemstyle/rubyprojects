@@ -22,6 +22,7 @@
     <% @books.each_with_index do |book,index| %>
     <% rank_id = "star"+index.to_s %>
       <tr>
+      	<td><%= book.amazon_url.html_safe %></td>
         <td><%= book.name %></td>
         <td><div id="<%=rank_id %>"></div></td>
         <td><%= book.price %></td>
@@ -41,4 +42,37 @@
 <br>
 
 <%= link_to 'New Book', new_book_path %>
+
+
+<!-- 1.カルーセルパネルの配置 http://codezine.jp/article/detail/8350?p=2 -->
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+
+    <!-- 2.表示中のスライドを表すリスト -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example" data-slide-to="1"></li>
+        <li data-target="#carousel-example" data-slide-to="2"></li>
+     </ol>
+
+    <!-- 3.表示するスライドのコンテンツ -->
+    <div class="carousel-inner">
+    	<% @books.each_with_index do |book,index| %>
+        <div class="item <%='active' if index==0 %>">
+            <%= book.amazon_url.html_safe %>            
+            <div class="carousel-caption">
+                <h3><%=book.name%></h3>
+                <p><%=book.description%></p>
+            </div>
+        </div>
+        <% end %>  
+    </div>
+
+    <!-- 4.左右の矢印ボタン -->
+    <a class="left carousel-control" href="#carousel-example" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
 
