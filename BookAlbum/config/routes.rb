@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/login'
+
   get 'infos/about'
 
   resources :books do 
