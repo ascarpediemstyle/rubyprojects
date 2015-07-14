@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/login'
+  get 'admin/auth'
+  post 'admin/auth'
 
   get 'infos/about'
 
