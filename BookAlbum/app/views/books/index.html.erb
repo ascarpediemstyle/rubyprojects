@@ -1,4 +1,24 @@
-
+<!-- carousel用のスタイル -->
+<style type="text/css">
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+.carousel-area{
+	margin: 20px;
+}
+</style>
 
 
 <p id="notice"><%= notice %></p>
@@ -42,80 +62,40 @@
 <br>
 
 <%= link_to 'New Book', new_book_path %>
-
-
+<div class="carousel-area">
 <!-- 1.カルーセルパネルの配置 http://codezine.jp/article/detail/8350?p=2 -->
-<div id="carousel-example" class="carousel slide" data-ride="carousel">
+<div id="carousel-book" class="carousel slide"  data-interval="3000" data-ride="carousel">
 
     <!-- 2.表示中のスライドを表すリスト -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example" data-slide-to="1"></li>
-        <li data-target="#carousel-example" data-slide-to="2"></li>
+        <li data-target="#carousel-book" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-book" data-slide-to="1"></li>
+        <li data-target="#carousel-book" data-slide-to="2"></li>
      </ol>
 
     <!-- 3.表示するスライドのコンテンツ -->
     <div class="carousel-inner">
     	<% @books.each_with_index do |book,index| %>
         <div class="item <%='active' if index==0 %>">
-              <%= book.amazon_url.html_safe %>
-              <div class="container">              	
-                <div class="carousel-caption">                	
-                    <h3><%=book.name%></h3>
-                    <p><%=book.description%></p>
-                </div>
-              </div>
+          <%= book.amazon_url.html_safe %>
+          <div class="container">              	
+            <div class="carousel-caption">                	
+                <h2><%=book.name%></h2>
+                <p><%=book.description%></p>
+            </div>
+          </div>
         </div>
         <% end %>  
     </div>
 
     <!-- 4.左右の矢印ボタン -->
-    <a class="left carousel-control" href="#carousel-example" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#carousel-book" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
-    <a class="right carousel-control" href="#carousel-example" role="button" data-slide="next">
+    <a class="right carousel-control" href="#carousel-book" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a> 
     
 </div>
-
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Carousel indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>   
-    <!-- Wrapper for carousel items -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <h2>Slide 1</h2>
-            <div class="carousel-caption">
-              <h3>First slide label</h3>
-              <p>Lorem ipsum dolor sit amet consectetur…</p>
-            </div>
-        </div>
-        <div class="item">
-            <h2>Slide 2</h2>
-            <div class="carousel-caption">
-              <h3>Second slide label</h3>
-              <p>Aliquam sit amet gravida nibh, facilisis gravida…</p>
-            </div>
-        </div>
-        <div class="item">
-            <h2>Slide 3</h2>
-            <div class="carousel-caption">
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna vel…</p>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel controls -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
 </div>
+
