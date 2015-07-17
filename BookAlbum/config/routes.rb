@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'admin/auth'
 
   get 'infos/about'
+  get 'infos/top'
 
   resources :books do 
     collection do
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'infos#top'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
