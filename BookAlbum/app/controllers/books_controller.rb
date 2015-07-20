@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :admin_mode?
 
   # GET /books
   # GET /books.json
@@ -81,6 +82,10 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :price, :description,:publisher_id,:rank,:amazon_url,:category)
+      params.require(:book).permit(:name, :price, :description,:publisher_id,:rank,:amazon_url,:category_id)
+    end
+    
+    def admin_mode?
+      @is_admin_mode = (session[:user].nil?) ? true:false
     end
 end

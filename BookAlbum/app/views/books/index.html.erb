@@ -7,30 +7,34 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Rank</th>
+      <th width="140px"></th>
+      <th width="250px">Name</th>
+      <th width="120px">Rank</th>
       <th>Price</th>
       <th>Description</th>
       <th>出版社</th>
+      <th>Category</th>
       <th colspan="1"></th>
     </tr>
   </thead>
 
-  <tbody>
-  	
+  <tbody>  	
     <% @books.each_with_index do |book,index| %>
     <% rank_id = "star"+index.to_s %>
       <tr>
-      	<td><%= book.amazon_url.match(/<img.*" >/).to_a[0].to_s.sub(/<img/,'<img width="40%" height="40%"').html_safe %></td>
+      	<td><%= book.amazon_url.match(/<img.*" >/).to_a[0].to_s.sub(/<img/,'<img height="55%"').html_safe %></td>
         <td><%= book.name %></td>
         <td><div id="<%=rank_id %>"></div></td>
         <td><%= book.price %></td>
         <td><%= book.description %></td>
         <td><%= (book.publisher ?  book.publisher.name : "" )%></td>
+        <td><%= (book.category ?  book.category.name : "" )%></td>
         <td>
         	<%= link_to 'Show', book %>
-        	<%= link_to 'Edit', edit_book_path(book) %>
-        	<%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+        	<% if @is_admin_mode then  %>
+        		<%= link_to 'Edit', edit_book_path(book) %>
+        		<%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+        	<% end %> 
         </td>
       </tr>
       <script>doRaty("<%=rank_id %>",<%= book.rank %>)</script>
