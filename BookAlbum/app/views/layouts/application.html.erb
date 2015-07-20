@@ -10,49 +10,76 @@
   <%= google_webfonts_init(
 	google: ['Roboto Slab', 'Rajdhani']
   )%>
+
+  <style>
+	  #header-area {
+		  padding-top: 40px;
+		  margin-bottom: 40px;
+	  }
+
+	  #global-nav {
+		  width: 147px;
+		  float: right;
+		  margin-bottom: 64px;
+	  }
+
+	  #content-area {
+		  width: 701px;
+		  float: left;
+	  }
+
+	  #footer-area {
+		  width: 701px;
+		  margin-bottom: 20px;
+		  clear: both;
+		  overflow: hidden;
+	  }
+	  .item-nav {
+		  margin-top: -3px;
+		  padding-left: 4px;
+	  }
+	  .item-nav, x:-moz-any-link, x:default {
+		  padding-bottom: 23px;
+		  margin-bottom: 30px;
+	  }
+	  #wrapper {
+		  width: 947px;
+		  margin: 0px auto;
+		  padding: 0px 0px 0px 13px;
+	  }
+  </style>
 </head>
 <body>
-<div class="navbar navbar-inverse role navigation" >
-	<div class="container">
-		<div class="navbar-header">			
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	          <span class="sr-only">Toggle navigation</span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-	        </button>
-	        <a class="navbar-brand" href="http://ascarpediemstyle.com">As CarpeDiem Style</a>
+<div id="wrapper">
+	<div id="header-area" >
+	</div>
+
+  <div id="global-nav">
+		<div class="item-nav">
+			<ul >
+				<li><a href="/">Home</a></li>
+				<li><a href="/books">Book</a></li>
+				<li><a href="/books/stat">Stats</a></li>
+				<li><a href="/infos/about">About</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				  <li><a href="#">Action</a></li>
+				  <li><a href="#">Another action</a></li>
+				  <li><a href="#">Something else here</a></li>
+				  <li role="separator" class="divider"></li>
+				  <li class="dropdown-header">Nav header</li>
+				  <li><a href="#">Separated link</a></li>
+				  <li><a href="#">One more separated link</a></li>
+				</ul>
+			</ul>
 		</div>
-					
-		<div class="navbar-collapse collapse">
-	        <ul class="nav navbar-nav">
-	        	<li><a href="/">Home</a></li>
-	           	<li><a href="/books">Book</a></li>
-	            <li><a href="/books/stat">Stats</a></li>
-	          	<li><a href="/infos/about">About</a></li>
-	          	<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-	        </ul>
-      </div>	      
-	</div><!--/.nav-collapse -->
+	</div>
+
+	<div id="content-area">
+		<%= yield %>
+	</div>
+
 </div>
-
-
-
-	
-<div class="container">
-	<%= yield %>
-</div><!-- /.container -->
-
 </body>
 </html>
