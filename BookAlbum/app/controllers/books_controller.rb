@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :admin_mode?
+  before_action :set_admin_mode
 
   # GET /books
   # GET /books.json
@@ -85,7 +85,7 @@ class BooksController < ApplicationController
       params.require(:book).permit(:name, :price, :description,:publisher_id,:rank,:amazon_url,:category_id)
     end
     
-    def admin_mode?
-      @is_admin_mode = (session[:user].nil?) ? true:false
+    def set_admin_mode
+      @is_admin_mode = (session[:user].nil?) ? false :true
     end
 end
