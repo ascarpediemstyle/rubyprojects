@@ -24,7 +24,7 @@
 	  }
 
 	  #content-area {
-		  width: 701px;
+		  width: 851px;
 		  float: left;
 	  }
 
@@ -64,7 +64,7 @@
 	  }
 
 	  #wrapper {
-		  width: 947px;
+		  width: 1047px;
 		  margin: 0px auto;
 		  padding: 0px 0px 0px 13px;
 	  }
@@ -79,29 +79,32 @@
 		<div class="item-nav">
 			<ul >
 				<li><a href="/">Home</a></li>
-				<li><a href="/books">Book</a></li>
-				<li><a href="/books/stat">Stats</a></li>
+				<li><a href="/books">Listing Books</a></li>
+				<!--<li><a href="/books/stat">Stats</a></li>-->
 				<li><a href="/infos/about">About</a></li>
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-				  <li><a href="#">Action</a></li>
-				  <li><a href="#">Another action</a></li>
-				  <li><a href="#">Something else here</a></li>
-				  <li role="separator" class="divider"></li>
-				  <li class="dropdown-header">Nav header</li>
-				  <li><a href="#">Separated link</a></li>
-				  <li><a href="#">One more separated link</a></li>
-				</ul>
+				<!--<li class="dropdown">-->
+				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+				<!--<ul class="dropdown-menu">-->
+				  <!--<li><a href="#">Action</a></li>-->
+				  <!--<li><a href="#">Another action</a></li>-->
+				  <!--<li><a href="#">Something else here</a></li>-->
+				  <!--<li role="separator" class="divider"></li>-->
+				  <!--<li class="dropdown-header">Nav header</li>-->
+				  <!--<li><a href="#">Separated link</a></li>-->
+				  <!--<li><a href="#">One more separated link</a></li>-->
+				<!--</ul>-->
+              <% if @is_admin_mode then  %>
+                  <li><a href="/admin/logout">logout</a></li>
+              <% end %>
 			</ul>
 		</div>
-		<div class="corporate-nav">
+		<!--<div class="corporate-nav">-->
 
-		  <ul>
-			<li class="about-me"><a href="/infos/about">About</a></li>
-		  </ul>
+		  <!--<ul>-->
+			<!--<li class="about-me"><a href="/infos/about">About</a></li>-->
+		  <!--</ul>-->
 
-		</div>
+		<!--</div>-->
 
 	</div>
 

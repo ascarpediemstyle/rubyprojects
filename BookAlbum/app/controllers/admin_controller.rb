@@ -1,18 +1,24 @@
 class AdminController < ApplicationController
 
+
   # before_filter :login  
 
   def login    
   end
+
+  def logout
+    session[:user] = nil
+    redirect_to "/"
+    return
+  end
   
   def auth
     name = 'miwasaki'
-    passwd = 'mmmm'
-    
+    passwd = 'bookAdminPasswd'
     
     if (params[:username] == name && params[:password]==passwd)
       session[:user] = name
-      redirect_to :controller => 'books',:action => 'index'
+      redirect_to :controller => 'infos',:action => 'top'
       return
     else
       render :text => 'NG'
@@ -20,4 +26,7 @@ class AdminController < ApplicationController
     end
     
   end
+
+
+
 end

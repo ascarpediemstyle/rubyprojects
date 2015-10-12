@@ -6,3 +6,5 @@ class InfosController < ApplicationController
     @books = Book.all
   end
 end
+
+
